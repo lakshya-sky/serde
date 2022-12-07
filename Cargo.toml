@@ -1,13 +1,9 @@
 [workspace]
-members = [
-    "serde",
-    "serde_derive",
-    "serde_derive_internals",
-    "test_suite",
-]
+members = ["serde", "serde_derive", "serde_derive_internals", "test_suite"]
 
 [patch.crates-io]
 serde = { path = "serde" }
+serde_json = { git = "https://github.com/lakshya-sky/serde_json" }
 
 [workspace.dependencies]
 proc-macro2 = { version = "1.0.74", default-features = false }

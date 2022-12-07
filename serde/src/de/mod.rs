@@ -346,7 +346,7 @@ pub enum Unexpected<'a> {
 
     /// The input contained a floating point `f32` or `f64` that was not
     /// expected.
-    Float(f64),
+    //Float(f64),
 
     /// The input contained a `char` that was not expected.
     Char(char),
@@ -402,7 +402,7 @@ impl<'a> fmt::Display for Unexpected<'a> {
             Bool(b) => write!(formatter, "boolean `{}`", b),
             Unsigned(i) => write!(formatter, "integer `{}`", i),
             Signed(i) => write!(formatter, "integer `{}`", i),
-            Float(f) => write!(formatter, "floating point `{}`", WithDecimalPoint(f)),
+            // Float(f) => write!(formatter, "floating point `{}`", WithDecimalPoint(f)),
             Char(c) => write!(formatter, "character `{}`", c),
             Str(s) => write!(formatter, "string {:?}", s),
             Bytes(_) => formatter.write_str("byte array"),
@@ -1463,7 +1463,7 @@ pub trait Visitor<'de>: Sized {
     where
         E: Error,
     {
-        Err(Error::invalid_type(Unexpected::Float(v), &self))
+        Err(Error::invalid_type(Unexpected::Other("float"), &self))
     }
 
     /// The input contains a `char`.
